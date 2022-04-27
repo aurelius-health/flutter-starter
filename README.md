@@ -14,9 +14,8 @@ Things just became a little cloudy ☁️
 
 Todo:
 
-- [ ] Build a way to retain our geolocation when moving between screens
+- [ ] Fix the WeatherModel issue on Forecast Page
 - [ ] Fix the layout issue on ForecastPage
-- [ ] Add the icon to the forecast items
 
 Extra:
 
