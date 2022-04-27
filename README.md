@@ -12,14 +12,14 @@ We'd like to be able to see the forecast for the next 6 days. But when we naviga
 
 Things just became a little cloudy ☁️
 
-Todo:
+Objectives:
 
 - [ ] Fix the WeatherModel issue on Forecast Page
 - [ ] Fix the layout issue on ForecastPage
 
 Extra:
 
-- [ ] Convert the API response of **5 day / 3 hour** into **5 days**
+- [ ] The forecast response data is a list of hourly results spanning **5 days**, we need to convert it into 5 items, **1 per day**.
 
 ## Info
 
@@ -28,6 +28,7 @@ Getting current weather data
 ### Current weather
 
 [Current weather data resource](https://openweathermap.org/current)
+
 ```
 POST: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
