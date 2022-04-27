@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/models/status.dart';
 import 'package:geolocator/geolocator.dart';
 
-const API_KEY = '';
+const API_KEY = '7a3d3ecf6d5b1d779f3e269bd01d48aa';
 
 class WeatherModel extends ChangeNotifier {
   WeatherModel();
@@ -42,7 +42,7 @@ class WeatherModel extends ChangeNotifier {
         'name': response.data?['city']['name'],
       }));
     }).toList();
-    
+
     print(response);
     status = Status.idle;
     notifyListeners();
@@ -53,8 +53,12 @@ class WeatherModel extends ChangeNotifier {
 
 /// Converts items based on 3 hour forecast to single days.
 List<dynamic> _hourlyForecastToDays(List<dynamic> data) {
+  /// Only retrieve the data that contains '00:00:00 in dt_txt
+  /// By doing so we will only get one forecast data each day
+  var temp = data.where((element) => element['dt_txt'].substring(11) == '00:00:00').toList();
+  print(temp);
   // TODO: Fold the hourly entries into days
-  return data;
+  return temp;
 }
 
 class WeatherData {
