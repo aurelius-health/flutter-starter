@@ -23,13 +23,15 @@ class ForecastPage extends StatelessWidget {
             }
 
             if (data.localWeatherForecast.isNotEmpty) {
-              return Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: data.localWeatherForecast
-                    .map((weather) => DailyForecast(weather: weather))
-                    .toList(),
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: data.localWeatherForecast
+                      .map((weather) => DailyForecast(weather: weather))
+                      .toList(),
+                ),
               );
             }
 
@@ -42,8 +44,8 @@ class ForecastPage extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     context.read<WeatherModel>().getForecast(
-                          context.read<GeoLocationModel>().location!,
-                        );
+                      context.read<GeoLocationModel>().location!,
+                    );
                   },
                   child: const Text('Load forecast'),
                 ),

@@ -7,8 +7,11 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => GeoLocationModel(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => GeoLocationModel()),
+        ChangeNotifierProvider(create: (context) => WeatherModel()),
+      ],
       child: const App(),
     ),
   );
@@ -40,10 +43,7 @@ class LocationLoader extends StatelessWidget {
         if (data.location == null) {
           return const LocationError();
         }
-        return ChangeNotifierProvider(
-          create: (_) => WeatherModel(),
-          child: const HomePage(),
-        );
+        return const HomePage();
       },
     );
   }
