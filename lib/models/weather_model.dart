@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/models/status.dart';
 import 'package:geolocator/geolocator.dart';
 
-const API_KEY = '';
+const API_KEY = 'd8eb7ae1a35d42c1cc5780438b0975a3';
 
 class WeatherModel extends ChangeNotifier {
   WeatherModel();
